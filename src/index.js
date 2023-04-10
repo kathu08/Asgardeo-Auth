@@ -7,9 +7,9 @@ import { AuthProvider } from "@asgardeo/auth-react";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const config = {
-    signInRedirectURL: "http://localhost:3000",
+    signInRedirectURL: "http://localhost:3000/login",
     signOutRedirectURL: "http://localhost:3000",
-    clientID: "Vu6EOjHV1cjoILcSmoHIhW1ZQxwa",
+    clientID: "frDVK7LFSkJkhLGLYodbdbLUns4a",
     baseUrl: "https://api.asgardeo.io/t/mypracticeorg",
     scope: ["openid", "profile"]
 }
