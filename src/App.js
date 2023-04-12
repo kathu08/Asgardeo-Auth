@@ -1,33 +1,28 @@
 import './App.css';
 import { useAuthContext } from "@asgardeo/auth-react";
-import {BrowserRouter, Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter, Router, Route, Switch, Redirect} from "react-router-dom";
 import Login from "./Login";
 import {history} from "./history";
+import React from "react";
 
 function App() {
-  const { state, signIn, signOut } = useAuthContext();
-  const handleSignIn = () => {
-    signIn();
-  }
+  const { state } = useAuthContext();
 
   return (
     <div className="App">
       {
         state.isAuthenticated
           ? (
-            // <div>
-            //   <button onClick={() => signOut()}>Logout</button>
-            // </div>
             <BrowserRouter>
               <Router history={history}>
                 <Switch>
-                  <Route exact path="/login" component={Login}/>
+                  <Route exact path="/home" component={Login}/>
+                  <Redirect to="/home"/>
                 </Switch>
               </Router>
             </BrowserRouter>
           )
-          : <button onClick={() => signIn()}>Login</button>
-          // : handleSignIn()
+            : null
       }
     </div>
   );
